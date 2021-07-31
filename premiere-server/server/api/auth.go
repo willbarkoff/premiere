@@ -4,6 +4,7 @@ import (
 	"github.com/davecgh/go-spew/spew"
 	"github.com/gin-gonic/gin"
 	"github.com/willbarkoff/premiere/premiere-server/l"
+	"github.com/willbarkoff/premiere/premiere-server/movies"
 	"golang.org/x/crypto/bcrypt"
 	"net/http"
 	"os"
@@ -17,7 +18,19 @@ func PrepareAuthRoutes() {
 			return
 		}
 
-		c.JSON(http.StatusOK, user)
+		genres, err := movies.Genres()
+		if err != nil {
+			InternalServerError(c)
+			return
+		}
+
+		config, err := movies.Config()
+		if err != nil {
+			InternalServerError(c)
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"status": "ok", "data": gin.H{"user": user, "genres": genres, "tmdb": config}})
 	})
 
 	r.POST("/auth/register", func(c *gin.Context) {

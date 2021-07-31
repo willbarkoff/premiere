@@ -18,7 +18,7 @@ func PrepareMovieRoutes() {
 			return
 		}
 
-		c.JSON(http.StatusOK, gin.H{"status": "ok", "genres": genres})
+		c.JSON(http.StatusOK, gin.H{"status": "ok", "data": genres})
 
 	})
 
@@ -37,7 +37,7 @@ func PrepareMovieRoutes() {
 			return
 		}
 
-		c.JSON(http.StatusOK, gin.H{"status": "ok", "results": results})
+		c.JSON(http.StatusOK, gin.H{"status": "ok", "data": results})
 	})
 
 	r.GET("/movies/fetch", EnsureLoggedIn, func(c *gin.Context) {
@@ -55,7 +55,7 @@ func PrepareMovieRoutes() {
 
 		c.JSON(http.StatusOK, gin.H{
 			"status": "ok",
-			"movie":  movie,
+			"data":   movie,
 		})
 	})
 

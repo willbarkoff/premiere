@@ -25,6 +25,10 @@ func Genres() (*tmdb.Genre, error) {
 	return tmdbapi.GetMovieGenres(nil)
 }
 
+func Config() (*tmdb.Configuration, error) {
+	return tmdbapi.GetConfiguration()
+}
+
 func FetchMovie(id int) (*tmdb.Movie, error) {
 	return tmdbapi.GetMovieInfo(id, nil)
 }
