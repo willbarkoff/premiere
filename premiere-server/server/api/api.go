@@ -24,6 +24,7 @@ func PrepareRoutes(router *gin.Engine, database *sql.DB, sessions cookie.Store) 
 
 	PrepareAuthRoutes()
 	PrepareMovieRoutes()
+	PrepareListRoutes()
 }
 
 func EnsureLoggedIn(c *gin.Context) {

@@ -2,9 +2,8 @@ import { faList, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 
-import * as api from "../../../api";
 import AddAction from "./AddAction";
-import CollapseableSection from "./CollapseableSection";
+import MovieList from "./MovieList";
 import Navbar from "./Navbar";
 
 export default function List(): JSX.Element {
@@ -13,19 +12,20 @@ export default function List(): JSX.Element {
 		<section className="section">
 			<div className="container">
 				<h1 className="title">
-					<FontAwesomeIcon className="has-text-primary" icon={faPlus} />&nbsp;
-					Add a movie
+					<FontAwesomeIcon className="has-text-primary" icon={faList} />&nbsp;
+					Vote on movies
 				</h1>
-				<AddAction />
-
+				<MovieList />
 			</div>
 		</section>
 		<section className="section">
 			<div className="container">
 				<h1 className="title">
-					<FontAwesomeIcon className="has-text-primary" icon={faList} />&nbsp;
-					Vote on movies
+					<FontAwesomeIcon className="has-text-primary" icon={faPlus} />&nbsp;
+					Add a movie
 				</h1>
+				<AddAction />
+
 			</div>
 		</section>
 	</>;

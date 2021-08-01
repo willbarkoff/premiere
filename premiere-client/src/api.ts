@@ -176,3 +176,15 @@ export interface SpokenLanguage {
 	iso_639_1: string;
 	Name: string;
 }
+
+export interface MovieItem {
+	ID: number;
+	UserID: number;
+	TMDBID: number;
+	Title: string;
+	Runtime: string;
+	Poster: string;
+	Release: string;
+	Genres: number[];
+	Overview: string;
+}

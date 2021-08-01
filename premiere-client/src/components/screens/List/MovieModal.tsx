@@ -68,7 +68,7 @@ export default function MovieModal(props: { onClose(): void, movie: number, show
 					<h1 className="title">{movieInfo.Title}&nbsp;
 						{props.showAdd && <AddButton id={movieInfo.ID} />}
 					</h1>
-					<h2 className="subtitle">{movieInfo.Tagline}</h2>
+					<h2 className="subtitle mb-2">{movieInfo.Tagline}</h2>
 					<div className="tags mb-0 mt-1">
 						{movieInfo.Genres.map((genre, i) => <span className="tag" key={i}>
 							{genre.Name}
