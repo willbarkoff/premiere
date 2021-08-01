@@ -4,6 +4,7 @@ import * as React from "react";
 
 import * as api from "../../../api";
 import AddAction from "./AddAction";
+import CollapseableSection from "./CollapseableSection";
 import Navbar from "./Navbar";
 
 export default function List(): JSX.Element {

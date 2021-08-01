@@ -7,6 +7,10 @@ import LoadingIndicator from "./LoadingIndicator";
 import List from "./screens/List/List";
 import SignInScreen from "./screens/SignIn/SignIn";
 
+// FIXME: should have default value
+//@ts-expect-error see https://github.com/DefinitelyTyped/DefinitelyTyped/pull/24509#issuecomment-382213106
+export const ContextData = React.createContext<{ context: api.ContextData, fetchContext() }>();
+
 export default function App(): JSX.Element {
 	const [isLoading, setIsLoading] = React.useState(true);
 	const [context, setContext] = React.useState(null as null | any);
@@ -33,5 +37,7 @@ export default function App(): JSX.Element {
 		return <SignInScreen reload={fetchContext} />;
 	}
 
-	return <List />;
+	return <ContextData.Provider value={{ context, fetchContext }}>
+		<List />
+	</ContextData.Provider>;
 }
